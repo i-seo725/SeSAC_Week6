@@ -63,7 +63,7 @@ class ViewController: UIViewController {
 
 
     @objc func signButtonClicked() {
-        let vc = LocationViewController()   // 스토리보드가 없어서 뷰컨트롤러 인스턴스 만들어서 present하면 됨
+        let vc = FirstExampleViewController()   // 스토리보드가 없어서 뷰컨트롤러 인스턴스 만들어서 present하면 됨
         present(vc, animated: true)
     }
     
