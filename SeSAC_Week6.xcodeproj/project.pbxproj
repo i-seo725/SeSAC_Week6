@@ -70,6 +70,7 @@
 			children = (
 				F49442E72A94ECCE009AABA7 /* Assignment */,
 				F49442E02A944645009AABA7 /* Test */,
+				F49442E52A947927009AABA7 /* LocationViewController.swift */,
 				F404134F2A930A0000871FEE /* AppDelegate.swift */,
 				F40413512A930A0000871FEE /* SceneDelegate.swift */,
 				F40413532A930A0000871FEE /* ViewController.swift */,
@@ -77,7 +78,6 @@
 				F40413582A930A0100871FEE /* Assets.xcassets */,
 				F404135A2A930A0100871FEE /* LaunchScreen.storyboard */,
 				F404135D2A930A0100871FEE /* Info.plist */,
-				F49442E52A947927009AABA7 /* LocationViewController.swift */,
 			);
 			path = SeSAC_Week6;
 			sourceTree = "<group>";
@@ -94,10 +94,26 @@
 		F49442E72A94ECCE009AABA7 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1B52C2A964EC400E632AE /* 0823 */,
+				F4B1B52B2A964EB500E632AE /* 0822 */,
+			);
+			path = Assignment;
+			sourceTree = "<group>";
+		};
+		F4B1B52B2A964EB500E632AE /* 0822 */ = {
+			isa = PBXGroup;
+			children = (
 				F49442E82A94ED41009AABA7 /* FirstExampleViewController.swift */,
 				F49442EA2A94ED49009AABA7 /* SecondExampleViewController.swift */,
 			);
-			path = Assignment;
+			path = 0822;
+			sourceTree = "<group>";
+		};
+		F4B1B52C2A964EC400E632AE /* 0823 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = 0823;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +350,7 @@
 				DEVELOPMENT_TEAM = N54L2GS5Z3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC_Week6/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 날씨에 대한 정보를 가져 오기 위해 위치 정보를 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -366,6 +383,7 @@
 				DEVELOPMENT_TEAM = N54L2GS5Z3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC_Week6/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 날씨에 대한 정보를 가져 오기 위해 위치 정보를 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
