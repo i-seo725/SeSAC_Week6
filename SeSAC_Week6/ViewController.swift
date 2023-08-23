@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     @objc func signButtonClicked() {
 //        let vc = SecondExampleViewController()   // 스토리보드가 없어서 뷰컨트롤러 인스턴스 만들어서 present하면 됨
 //        vc.modalPresentationStyle = .fullScreen
-        let vc = LocationViewController()
+        let vc = FindCinemaViewController()
         let nav = UINavigationController(rootViewController: vc)
         //제목 바 달고 프리젠트 가능
         present(nav, animated: true)

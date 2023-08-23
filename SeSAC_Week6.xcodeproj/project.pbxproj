@@ -19,6 +19,8 @@
 		F49442E62A947927009AABA7 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49442E52A947927009AABA7 /* LocationViewController.swift */; };
 		F49442E92A94ED41009AABA7 /* FirstExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49442E82A94ED41009AABA7 /* FirstExampleViewController.swift */; };
 		F49442EB2A94ED49009AABA7 /* SecondExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49442EA2A94ED49009AABA7 /* SecondExampleViewController.swift */; };
+		F4B1B52E2A964F0C00E632AE /* FindCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1B52D2A964F0C00E632AE /* FindCinemaViewController.swift */; };
+		F4B1B5302A96501300E632AE /* sampleCode_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1B52F2A96501300E632AE /* sampleCode_map.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		F49442E52A947927009AABA7 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F49442E82A94ED41009AABA7 /* FirstExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstExampleViewController.swift; sourceTree = "<group>"; };
 		F49442EA2A94ED49009AABA7 /* SecondExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondExampleViewController.swift; sourceTree = "<group>"; };
+		F4B1B52D2A964F0C00E632AE /* FindCinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCinemaViewController.swift; sourceTree = "<group>"; };
+		F4B1B52F2A96501300E632AE /* sampleCode_map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sampleCode_map.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				F49442E72A94ECCE009AABA7 /* Assignment */,
 				F49442E02A944645009AABA7 /* Test */,
 				F49442E52A947927009AABA7 /* LocationViewController.swift */,
+				F4B1B52F2A96501300E632AE /* sampleCode_map.swift */,
 				F404134F2A930A0000871FEE /* AppDelegate.swift */,
 				F40413512A930A0000871FEE /* SceneDelegate.swift */,
 				F40413532A930A0000871FEE /* ViewController.swift */,
@@ -112,6 +117,7 @@
 		F4B1B52C2A964EC400E632AE /* 0823 */ = {
 			isa = PBXGroup;
 			children = (
+				F4B1B52D2A964F0C00E632AE /* FindCinemaViewController.swift */,
 			);
 			path = 0823;
 			sourceTree = "<group>";
@@ -195,10 +201,12 @@
 			files = (
 				F49442E92A94ED41009AABA7 /* FirstExampleViewController.swift in Sources */,
 				F49442EB2A94ED49009AABA7 /* SecondExampleViewController.swift in Sources */,
+				F4B1B52E2A964F0C00E632AE /* FindCinemaViewController.swift in Sources */,
 				F49442E42A945CBA009AABA7 /* TextViewController.swift in Sources */,
 				F49442E22A944678009AABA7 /* SnapViewController.swift in Sources */,
 				F40413542A930A0000871FEE /* ViewController.swift in Sources */,
 				F49442E62A947927009AABA7 /* LocationViewController.swift in Sources */,
+				F4B1B5302A96501300E632AE /* sampleCode_map.swift in Sources */,
 				F40413502A930A0000871FEE /* AppDelegate.swift in Sources */,
 				F40413522A930A0000871FEE /* SceneDelegate.swift in Sources */,
 			);
