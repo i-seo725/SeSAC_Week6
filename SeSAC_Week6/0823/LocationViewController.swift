@@ -51,7 +51,6 @@ class LocationViewController: UIViewController {
         
         setAnotation(type: 0)
         
-        
         //두번 실행돼도 실행 안되면 안되니까 viewDidLoad에 넣어주기
 //        checkDeviceLocationAuthorization()
     }
@@ -70,7 +69,6 @@ class LocationViewController: UIViewController {
     
     
     func setAnotation(type: Int) {
-        
 //            37.555770, 127.078391 //메가박스
         let annotation1 = MKPointAnnotation()
         annotation1.coordinate = CLLocationCoordinate2D(latitude: 37.555770, longitude: 127.078391)
@@ -82,16 +80,14 @@ class LocationViewController: UIViewController {
         if type == 0 {  //viewDidLoad 상태, 어노테이션 두개 다 있음
             mapView.addAnnotations([annotation1, annotation2])
         } else if type == 1 {
-            
-            
-            
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotation(annotation2)
         }
-        
-        
-        
     }
+    
+    
+    
+    
     func setRegionAndAnnotaion(center: CLLocationCoordinate2D) {
         //지도 중심 기반으로 보여질 범위 설정
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 300, longitudinalMeters: 300)
