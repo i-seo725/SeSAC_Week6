@@ -23,6 +23,9 @@
 		F494C6D42A971CE0001E11F1 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6D32A971CE0001E11F1 /* CustomViewController.swift */; };
 		F494C6D62A971E92001E11F1 /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6D52A971E92001E11F1 /* BlackRadiusTextField.swift */; };
 		F494C6DA2A972A11001E11F1 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6D92A972A11001E11F1 /* CustomTableViewController.swift */; };
+		F494C6DD2A979141001E11F1 /* JackflixMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6DC2A979141001E11F1 /* JackflixMainViewController.swift */; };
+		F494C6DF2A97915D001E11F1 /* JacflixJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6DE2A97915D001E11F1 /* JacflixJoinViewController.swift */; };
+		F494C6E12A979E19001E11F1 /* JoinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494C6E02A979E19001E11F1 /* JoinTextField.swift */; };
 		F4B1B52E2A964F0C00E632AE /* FindCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1B52D2A964F0C00E632AE /* FindCinemaViewController.swift */; };
 		F4B1B5302A96501300E632AE /* sampleCode_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1B52F2A96501300E632AE /* sampleCode_map.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +48,9 @@
 		F494C6D32A971CE0001E11F1 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		F494C6D52A971E92001E11F1 /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
 		F494C6D92A972A11001E11F1 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
+		F494C6DC2A979141001E11F1 /* JackflixMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackflixMainViewController.swift; sourceTree = "<group>"; };
+		F494C6DE2A97915D001E11F1 /* JacflixJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacflixJoinViewController.swift; sourceTree = "<group>"; };
+		F494C6E02A979E19001E11F1 /* JoinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTextField.swift; sourceTree = "<group>"; };
 		F4B1B52D2A964F0C00E632AE /* FindCinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCinemaViewController.swift; sourceTree = "<group>"; };
 		F4B1B52F2A96501300E632AE /* sampleCode_map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sampleCode_map.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +114,7 @@
 		F49442E72A94ECCE009AABA7 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				F494C6DB2A979124001E11F1 /* 0824 */,
 				F4B1B52C2A964EC400E632AE /* 0823 */,
 				F4B1B52B2A964EB500E632AE /* 0822 */,
 			);
@@ -139,6 +146,16 @@
 				F494C6D92A972A11001E11F1 /* CustomTableViewController.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		F494C6DB2A979124001E11F1 /* 0824 */ = {
+			isa = PBXGroup;
+			children = (
+				F494C6DC2A979141001E11F1 /* JackflixMainViewController.swift */,
+				F494C6DE2A97915D001E11F1 /* JacflixJoinViewController.swift */,
+				F494C6E02A979E19001E11F1 /* JoinTextField.swift */,
+			);
+			path = 0824;
 			sourceTree = "<group>";
 		};
 		F4B1B52B2A964EB500E632AE /* 0822 */ = {
@@ -240,6 +257,7 @@
 				F49442E42A945CBA009AABA7 /* TextViewController.swift in Sources */,
 				F494C6DA2A972A11001E11F1 /* CustomTableViewController.swift in Sources */,
 				F49442E22A944678009AABA7 /* SnapViewController.swift in Sources */,
+				F494C6DD2A979141001E11F1 /* JackflixMainViewController.swift in Sources */,
 				F40413542A930A0000871FEE /* ViewController.swift in Sources */,
 				F494C6D42A971CE0001E11F1 /* CustomViewController.swift in Sources */,
 				F494C6D62A971E92001E11F1 /* BlackRadiusTextField.swift in Sources */,
@@ -248,7 +266,9 @@
 				F494C6D12A96F11D001E11F1 /* Extension+UIViewController.swift in Sources */,
 				F4B1B5302A96501300E632AE /* sampleCode_map.swift in Sources */,
 				F40413502A930A0000871FEE /* AppDelegate.swift in Sources */,
+				F494C6E12A979E19001E11F1 /* JoinTextField.swift in Sources */,
 				F40413522A930A0000871FEE /* SceneDelegate.swift in Sources */,
+				F494C6DF2A97915D001E11F1 /* JacflixJoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
