@@ -68,6 +68,8 @@ class JacflixJoinViewController: UIViewController {
         return view
     }()
     
+    let viewModel = jackflixViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -76,8 +78,46 @@ class JacflixJoinViewController: UIViewController {
         for i in views {
             view.addSubview(i)
         }
-
         setConstraints()
+        
+        emailTextField.addTarget(self, action: #selector(emailTextChanged), for: .editingChanged)
+        nicknameTextField.addTarget(self, action: #selector(nicknameTextChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(pwTextChanged), for: .editingChanged)
+        
+        
+        viewModel.validationEmail.bind { bool in
+            self.emailTextField.backgroundColor = self.viewModel.validationEmail.value ? .red : .green
+
+        }
+        
+        
+        viewModel.validationNickname.bind { bool in
+            self.nicknameTextField.backgroundColor = self.viewModel.validationNickname.value ? .red : .green
+
+        }
+        
+        viewModel.validationPw.bind { bool in
+            self.passwordTextField.backgroundColor = self.viewModel.validationPw.value ? .red : .green
+
+        }
+    }
+    
+    @objc func emailTextChanged() {
+        guard let text = emailTextField.text else { return }
+        viewModel.email.value = text
+        viewModel.validEmail()
+    }
+    
+    @objc func nicknameTextChanged() {
+        guard let text = nicknameTextField.text else { return }
+        viewModel.nickname.value = text
+        viewModel.validNickname()
+    }
+    
+    @objc func pwTextChanged() {
+        guard let text = passwordTextField.text else { return }
+        viewModel.pw.value = text
+        viewModel.validPw()
     }
 
     func setConstraints() {

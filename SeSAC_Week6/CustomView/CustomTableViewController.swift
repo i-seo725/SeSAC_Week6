@@ -16,11 +16,27 @@ struct Sample {
 
 class CustomTableViewController: UIViewController {
 
-    let tableView = {
+    //클로저 구문이 viewDidLoad보다 먼저 실행
+    //CustomTableViewController 인스턴스 생성 전에 클로저 구문 우선 실행
+    //viewDidLoad가 실행되는 게 인스턴스가 생성되는 거
+    //let으로 선언하면 인스턴스보다 먼저 생성돼서 self 키워드를 쓸 수 없어서 지연 저장 프로퍼티로 사용
+    lazy var tableView = {
         let view = UITableView()
         view.rowHeight = UITableView.automaticDimension
+        
+        view.delegate = self   //자기 자신의 인스턴스
+        view.dataSource = self
+        view.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
+        
         return view
     }()
+    //이미지뷰는 영역이고 컨텐츠를 채우는 건 하위 뷰인 UIImage에 넣어야 함, 그래서 서브뷰의 프레임/사이즈 설정 필요
+    let imageView = {
+//        let view = PosterImageView(frame: .zero)    //zero : width, height, x축, y축 모두 0
+        let view = PosterImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        return view
+    }()
+    
     //구조체마다 이 프로퍼티 가지기
 //    var isExpand = false
     
@@ -34,10 +50,15 @@ class CustomTableViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            print("제약조건")
+            make.center.equalToSuperview()
+            make.size.equalTo(200)
+        }
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "customCell")
+        //XIB 쓸 땐 불가, 코드베이스에서만 사용하는 코드
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "customCell") //UITableViewCell = 애플이 만들어준 셀
     
     }
     
@@ -51,9 +72,9 @@ extension CustomTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell")!
-        cell.textLabel?.text = list[indexPath.row].text
-        cell.textLabel?.numberOfLines = list[indexPath.row].isExpand ? 0 : 2
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        cell.label.text = list[indexPath.row].text
+        cell.label.numberOfLines = list[indexPath.row].isExpand ? 0 : 2
         return cell
     }
     
