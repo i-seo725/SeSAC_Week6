@@ -52,6 +52,7 @@ class JacflixJoinViewController: UIViewController {
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         view.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        view.isEnabled = false
         return view
     }()
     let addDetailButton = {
@@ -67,6 +68,14 @@ class JacflixJoinViewController: UIViewController {
         view.onTintColor = .systemRed
         return view
     }()
+    let alertLabel = {
+        let view = UILabel()
+        view.textColor = .white
+        view.textAlignment = .center
+        view.numberOfLines = 0
+        view.text = "유효한 값을 입력해주세요"
+        return view
+    }()
     
     let viewModel = jackflixViewModel()
     
@@ -74,50 +83,86 @@ class JacflixJoinViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        let views = [joinButton, addDetailButton, toggle, emailTextField, passwordTextField, nicknameTextField, locationTextField, codeTextField, titleLabel]
+        let views = [joinButton, addDetailButton, toggle, emailTextField, passwordTextField, nicknameTextField, locationTextField, codeTextField, titleLabel, alertLabel]
         for i in views {
             view.addSubview(i)
         }
         setConstraints()
-        
+        addTarget()
+        bindViewModel()
+    }
+    
+    func addTarget() {
         emailTextField.addTarget(self, action: #selector(emailTextChanged), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(nicknameTextChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(pwTextChanged), for: .editingChanged)
-        
-        
-        viewModel.validationEmail.bind { bool in
-            self.emailTextField.backgroundColor = self.viewModel.validationEmail.value ? .red : .green
-
+        locationTextField.addTarget(self, action: #selector(locationTextChanged), for: .editingChanged)
+        codeTextField.addTarget(self, action: #selector(codeTextChanged), for: .editingChanged)
+        joinButton.addTarget(self, action: #selector(joinButtonTapped), for: .touchUpInside)
+    }
+    
+    func bindViewModel() {
+        viewModel.email.bind { email in
+            self.emailTextField.text = email
         }
-        
-        
-        viewModel.validationNickname.bind { bool in
-            self.nicknameTextField.backgroundColor = self.viewModel.validationNickname.value ? .red : .green
-
+        viewModel.pw.bind { pw in
+            self.passwordTextField.text = pw
         }
-        
-        viewModel.validationPw.bind { bool in
-            self.passwordTextField.backgroundColor = self.viewModel.validationPw.value ? .red : .green
-
+        viewModel.nickname.bind { nickname in
+            self.nicknameTextField.text = nickname
+        }
+        viewModel.location.bind { location in
+            self.locationTextField.text = location
+        }
+        viewModel.code.bind { code in
+            self.codeTextField.text = code
+        }
+        viewModel.result.bind { result in
+            self.alertLabel.text = result
         }
     }
     
     @objc func emailTextChanged() {
-        guard let text = emailTextField.text else { return }
-        viewModel.email.value = text
-        viewModel.validEmail()
+        viewModel.email.value = emailTextField.text
+        emailTextField.backgroundColor = viewModel.validEmail(text: emailTextField.text) ? UIColor.systemGreen : UIColor.red
+        print(#function, viewModel.validEmail(text: emailTextField.text))
+        joinButton.isEnabled = viewModel.checking()
     }
     
     @objc func nicknameTextChanged() {
-        guard let text = nicknameTextField.text else { return }
-        viewModel.nickname.value = text
-        viewModel.validNickname()
+        viewModel.nickname.value = nicknameTextField.text
+        nicknameTextField.backgroundColor = viewModel.validNickname(text: nicknameTextField.text) ? UIColor.systemGreen : UIColor.red
+        print(#function, viewModel.validNickname(text: nicknameTextField.text))
+        joinButton.isEnabled = viewModel.checking()
     }
     
     @objc func pwTextChanged() {
-        guard let text = passwordTextField.text else { return }
-        viewModel.pw.value = text
-        viewModel.validPw()
+        viewModel.pw.value = passwordTextField.text
+        passwordTextField.backgroundColor = viewModel.validPw(text: passwordTextField.text) ? UIColor.systemGreen : UIColor.red
+        print(#function, viewModel.validPw(text: passwordTextField.text))
+        joinButton.isEnabled = viewModel.checking()
+    }
+    
+    @objc func locationTextChanged() {
+        viewModel.location.value = locationTextField.text
+        locationTextField.backgroundColor = viewModel.validLocation(text: locationTextField.text) ? UIColor.systemGreen : UIColor.red
+        print(#function, viewModel.validLocation(text: locationTextField.text))
+        joinButton.isEnabled = viewModel.checking()
+    }
+    
+    @objc func codeTextChanged() {
+        viewModel.code.value = codeTextField.text
+        codeTextField.backgroundColor = viewModel.validCode(text: codeTextField.text) ? UIColor.systemGreen : UIColor.red
+        print(#function, viewModel.validCode(text: codeTextField.text))
+        joinButton.isEnabled = viewModel.checking()
+    }
+    
+    @objc func joinButtonTapped() {
+        print("회원가입 클릭")
+        let alert = UIAlertController(title: "회원가입", message: "회원가입이 완료되었습니다", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
 
     func setConstraints() {
@@ -179,8 +224,10 @@ class JacflixJoinViewController: UIViewController {
             make.trailing.equalTo(joinButton.snp.trailing)
         }
         
-        
-        
+        alertLabel.snp.makeConstraints { make in
+            make.top.equalTo(toggle.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
     }
 
 }
